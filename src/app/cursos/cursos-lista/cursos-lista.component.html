@@ -24,7 +24,7 @@
   <div class="card-body">
     <table
       class="table table-hover"
-      *ngIf="cursos$ | async as cursos; else loadingError"
+      *ngIf="cursos$ | async as cursos; else loading"
     >
       <thead>
         <tr>
@@ -52,13 +52,17 @@
       </tbody>
     </table>
 
-    <ng-template #loadingError>
+    <ng-template #loading>
+      <span>Carregando cursos...</span>
+    </ng-template>
+
+    <!-- <ng-template #loadingError>
       <div *ngIf="error$ | async; else loading">
         Erro ao carregar curso. Tente novamente mais tarde!
       </div>
       <ng-template #loading>
         <span>Carregando cursos...</span>
       </ng-template>
-    </ng-template>
+    </ng-template> -->
   </div>
 </div>
