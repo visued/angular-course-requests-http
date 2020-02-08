@@ -1,14 +1,6 @@
 {
   "cursos": [
     {
-      "id": 1,
-      "nome": "Angular"
-    },
-    {
-      "id": 2,
-      "nome": "Python 3"
-    },
-    {
       "id": 3,
       "nome": "Java 8"
     },
@@ -23,10 +15,6 @@
     {
       "id": 6,
       "nome": "Rect Native"
-    },
-    {
-      "id": 7,
-      "nome": "Oracle"
     }
   ]
 }
