@@ -1,10 +1,6 @@
 {
   "cursos": [
     {
-      "id": 3,
-      "nome": "Java 8"
-    },
-    {
       "nome": "Ruby",
       "id": 4
     },
