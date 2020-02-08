@@ -5,12 +5,12 @@
       "nome": "Angular"
     },
     {
-      "nome": "Python",
-      "id": 2
+      "id": 2,
+      "nome": "Python 3"
     },
     {
-      "nome": "Java",
-      "id": 3
+      "id": 3,
+      "nome": "Java 8"
     },
     {
       "nome": "Ruby",
@@ -23,6 +23,10 @@
     {
       "id": 6,
       "nome": "Rect Native"
+    },
+    {
+      "id": 7,
+      "nome": "Oracle"
     }
   ]
 }

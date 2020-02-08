@@ -41,7 +41,7 @@ export class CursosFormComponent implements OnInit {
     //   )
     //   .subscribe(curso => this.updateForm(curso));
 
-    const curso = this.route.snapshot.data['curso'];
+    const curso = this.route.snapshot.data["curso"];
 
     this.form = this.fb.group({
       id: [curso.id],
@@ -59,15 +59,27 @@ export class CursosFormComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     if (this.form.valid) {
-      this.service.create(this.form.value).subscribe(
-        success => {
-          this.alertService.showAlertSuccess(`Curso criado com sucesso!`);
-          this.location.back();
-        },
-        error => {
-          this.alertService.showAlertDanger(`Ops ocorreu um erro!`);
-        }
-      );
+      if (this.form.value.id) {
+        this.service.update(this.form.value).subscribe(
+          success => {
+            this.alertService.showAlertSuccess(`Curso atualizado com sucesso!`);
+            this.location.back();
+          },
+          error => {
+            this.alertService.showAlertDanger(`Ops ocorreu um erro!`);
+          }
+        );
+      } else {
+        this.service.create(this.form.value).subscribe(
+          success => {
+            this.alertService.showAlertSuccess(`Curso criado com sucesso!`);
+            this.location.back();
+          },
+          error => {
+            this.alertService.showAlertDanger(`Ops ocorreu um erro!`);
+          }
+        );
+      }
     }
   }
 
