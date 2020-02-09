@@ -6,14 +6,25 @@
     id="customFile"
     (change)="onChange($event)"
   />
-  <label
-    id="customFileLabel"
-    class="custom-file-label"
-    for="customFile"
+  <label id="customFileLabel" class="custom-file-label" for="customFile"
     >Selecione um arquivo.</label
   >
+  <div class="progress" *ngIf="files">
+    <div
+      class="progress-bar"
+      role="progressbar"
+      [style.width]="progress + '%'"
+    >
+      {{ progress }}%
+    </div>
+  </div>
 </div>
 
-
-<button type="button" class="btn btn-default" (click)="onUpload()" [disabled]="!files">Enviar</button>
-
+<button
+  type="button"
+  class="btn btn-primary"
+  (click)="onUpload()"
+  [disabled]="!files"
+>
+  Enviar
+</button>
