@@ -15,6 +15,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const multipartMiddleware = multipart({ uploadDir: "./uploads" });
 
+app.get('/downloadExcel', (req, res)=> {
+  res.download('./uploads/report.xlsx');
+
+});
+
+app.get('/downloadPDF', (req, res)=> {
+  res.download('./uploads/report.pdf');
+});
+
 app.post("/uploads", multipartMiddleware, (req, res) => {
   const files = req.files;
   console.log(files);

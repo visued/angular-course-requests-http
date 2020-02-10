@@ -3,6 +3,7 @@ import { UploadFileService } from "./upload-file.service";
 import { HttpEvent, HttpEventType } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { filterResponse, uploadProgress } from "../shared/rxjs-operators";
+import { environment } from "src/environments/environment.prod";
 
 @Component({
   selector: "app-upload-file",
@@ -40,16 +41,30 @@ export class UploadFileComponent implements OnInit {
           filterResponse()
         )
         .subscribe(response => console.log("Upload concluido!"));
-        // .subscribe((event: HttpEvent<Object>) => {
-        //   console.log(event);
-        //   if (event.type === HttpEventType.Response) {
-        //     console.log("Upload concluido!");
-        //   } else if (event.type === HttpEventType.UploadProgress) {
-        //     const percentDone = Math.round((event.loaded * 100) / event.total);
-        //     this.progress = percentDone;
-        //     console.log(`Progresso: ${percentDone}`);
-        //   }
-        // });
+      // .subscribe((event: HttpEvent<Object>) => {
+      //   console.log(event);
+      //   if (event.type === HttpEventType.Response) {
+      //     console.log("Upload concluido!");
+      //   } else if (event.type === HttpEventType.UploadProgress) {
+      //     const percentDone = Math.round((event.loaded * 100) / event.total);
+      //     this.progress = percentDone;
+      //     console.log(`Progresso: ${percentDone}`);
+      //   }
+      // });
     }
+  }
+
+  onDownloadExcel() {
+    this.uploadService.download('/api/DownloadExcel')
+    .subscribe((res: any) => {
+      this.uploadService.handleFile(res, 'report.xlsx')
+    });
+  }
+
+  onDownloadPDF() {
+    this.uploadService.download('/api/DownloadPDF')
+    .subscribe((res: any) => {
+      this.uploadService.handleFile(res, 'report.pdf')
+    });
   }
 }
