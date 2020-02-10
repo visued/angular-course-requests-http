@@ -1,0 +1,35 @@
+<div class="container search-table">
+  <div class="search-box">
+    <div class="row">
+      <div class="col-md-9">
+        <input
+          type="text"
+          id="myInput"
+          class="form-control"
+          placeholder="Reactive search"
+          [formControl]="queryField"
+        />
+      </div>
+      <div class="col-auto">
+          <a class="btn btn-large btn-block btn-success" href="#" role="button" (click)="onSearch()">Procurar</a>
+      </div>
+    </div>
+  </div>
+  <div class="search-list">
+    <h3>303 Records Found</h3>
+    <table class="table" id="myTable">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>HTML</td>
+          <td>Web Development</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
